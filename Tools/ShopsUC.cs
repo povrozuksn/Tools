@@ -10,15 +10,11 @@ using System.Windows.Forms;
 
 namespace Tools
 {
-    public partial class MainForm : Form
+    public partial class ShopsUC : UserControl
     {
-        public MainForm()
+        public ShopsUC()
         {
             InitializeComponent();
-
-            ShopsUC shops = new ShopsUC();
-            shops.Dock = DockStyle.Fill;
-            InfoPanel.Controls.Add(shops); 
         }
     }
 }
