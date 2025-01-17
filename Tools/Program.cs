@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,13 @@ namespace Tools
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            SQLClass.conn = new MySqlConnection(SQLClass.CONNECTION_STRING);
+            SQLClass.conn.Open();
+
             Application.Run(new MainForm());
+
+            SQLClass.conn.Close();
         }
     }
 }
