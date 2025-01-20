@@ -26,8 +26,6 @@ namespace Tools
                 lbl.Location = new Point(x, y + 200);
                 lbl.Size = new Size(200, 30);
                 lbl.Text = shops_list[i + 1];
-                lbl.Tag = shops_list[i];
-                //lbl.Click += new EventHandler(lbl_Click);
                 Controls.Add(lbl);
 
                 PictureBox pb = new PictureBox();
@@ -40,16 +38,21 @@ namespace Tools
                 pb.Size = new Size(260, 200);
                 pb.SizeMode = PictureBoxSizeMode.Zoom;
                 pb.Tag = shops_list[i];
-                //pb.Click += new EventHandler(pb_Click);
+                pb.Click += new EventHandler(pb_Click);
                 Controls.Add(pb);
 
                 x += 280;
-                if (x > this.Width - 200)
-                {
-                    x = 10;
-                    y += 180;
-                }
+                
             }
+        }
+
+        private void pb_Click(object sender, EventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            CategoryUC categors = new CategoryUC(pb.Tag.ToString());
+            categors.Dock = DockStyle.Fill;
+            Controls.Clear();
+            Controls.Add(categors);
         }
     }
 }

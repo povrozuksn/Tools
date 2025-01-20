@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.AuthPanel = new System.Windows.Forms.Panel();
+            this.RegButton = new System.Windows.Forms.Button();
             this.PasTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.LoginTextBox = new System.Windows.Forms.TextBox();
@@ -36,9 +37,8 @@
             this.AuthButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.DownPanel = new System.Windows.Forms.Panel();
-            this.RegButton = new System.Windows.Forms.Button();
             this.InfoPanel = new System.Windows.Forms.Panel();
+            this.DownPanel = new System.Windows.Forms.Panel();
             this.AuthPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -58,6 +58,15 @@
             this.AuthPanel.Name = "AuthPanel";
             this.AuthPanel.Size = new System.Drawing.Size(1307, 62);
             this.AuthPanel.TabIndex = 0;
+            // 
+            // RegButton
+            // 
+            this.RegButton.Location = new System.Drawing.Point(1140, 9);
+            this.RegButton.Name = "RegButton";
+            this.RegButton.Size = new System.Drawing.Size(155, 30);
+            this.RegButton.TabIndex = 3;
+            this.RegButton.Text = "Регистрация";
+            this.RegButton.UseVisualStyleBackColor = true;
             // 
             // PasTextBox
             // 
@@ -124,6 +133,14 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1307, 491);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // InfoPanel
+            // 
+            this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InfoPanel.Location = new System.Drawing.Point(343, 6);
+            this.InfoPanel.Name = "InfoPanel";
+            this.InfoPanel.Size = new System.Drawing.Size(958, 479);
+            this.InfoPanel.TabIndex = 0;
+            // 
             // DownPanel
             // 
             this.DownPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -132,23 +149,6 @@
             this.DownPanel.Name = "DownPanel";
             this.DownPanel.Size = new System.Drawing.Size(1307, 49);
             this.DownPanel.TabIndex = 2;
-            // 
-            // RegButton
-            // 
-            this.RegButton.Location = new System.Drawing.Point(1140, 9);
-            this.RegButton.Name = "RegButton";
-            this.RegButton.Size = new System.Drawing.Size(155, 30);
-            this.RegButton.TabIndex = 3;
-            this.RegButton.Text = "Регистрация";
-            this.RegButton.UseVisualStyleBackColor = true;
-            // 
-            // InfoPanel
-            // 
-            this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InfoPanel.Location = new System.Drawing.Point(343, 6);
-            this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(958, 479);
-            this.InfoPanel.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -182,7 +182,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AuthButton;
         private System.Windows.Forms.Button RegButton;
-        private System.Windows.Forms.Panel InfoPanel;
+        public System.Windows.Forms.Panel InfoPanel;
     }
 }
 
