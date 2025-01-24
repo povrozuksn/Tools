@@ -55,6 +55,12 @@
     <Compile Include="CategoryUC.Designer.cs">
       <DependentUpon>CategoryUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductUC.Designer.cs">
+      <DependentUpon>ProductUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShopsUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -70,8 +76,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLClass.cs" />
+    <Compile Include="ToolsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToolsUC.Designer.cs">
+      <DependentUpon>ToolsUC.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CategoryUC.resx">
       <DependentUpon>CategoryUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUC.resx">
+      <DependentUpon>ProductUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShopsUC.resx">
       <DependentUpon>ShopsUC.cs</DependentUpon>
@@ -88,6 +103,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ToolsUC.resx">
+      <DependentUpon>ToolsUC.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
