@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Магазины");
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.RegButton = new System.Windows.Forms.Button();
             this.PasTextBox = new System.Windows.Forms.TextBox();
@@ -39,6 +40,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.InfoPanel = new System.Windows.Forms.Panel();
             this.DownPanel = new System.Windows.Forms.Panel();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.AuthPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -125,6 +127,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.76687F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.23313F));
             this.tableLayoutPanel1.Controls.Add(this.InfoPanel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.treeView1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -150,6 +153,18 @@
             this.DownPanel.Size = new System.Drawing.Size(1307, 49);
             this.DownPanel.TabIndex = 2;
             // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(6, 6);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "Узел0";
+            treeNode1.Text = "Магазины";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            this.treeView1.Size = new System.Drawing.Size(328, 479);
+            this.treeView1.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -162,6 +177,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "Инструменты для дома и стройки";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.AuthPanel.ResumeLayout(false);
             this.AuthPanel.PerformLayout();
             this.MainPanel.ResumeLayout(false);
@@ -183,6 +199,7 @@
         private System.Windows.Forms.Button AuthButton;
         private System.Windows.Forms.Button RegButton;
         public System.Windows.Forms.Panel InfoPanel;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }
 
