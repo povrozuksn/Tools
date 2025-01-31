@@ -39,8 +39,8 @@
             this.MainPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.InfoPanel = new System.Windows.Forms.Panel();
-            this.DownPanel = new System.Windows.Forms.Panel();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.DownPanel = new System.Windows.Forms.Panel();
             this.AuthPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -144,15 +144,6 @@
             this.InfoPanel.Size = new System.Drawing.Size(958, 479);
             this.InfoPanel.TabIndex = 0;
             // 
-            // DownPanel
-            // 
-            this.DownPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.DownPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DownPanel.Location = new System.Drawing.Point(0, 553);
-            this.DownPanel.Name = "DownPanel";
-            this.DownPanel.Size = new System.Drawing.Size(1307, 49);
-            this.DownPanel.TabIndex = 2;
-            // 
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -164,6 +155,16 @@
             treeNode1});
             this.treeView1.Size = new System.Drawing.Size(328, 479);
             this.treeView1.TabIndex = 1;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // DownPanel
+            // 
+            this.DownPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.DownPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DownPanel.Location = new System.Drawing.Point(0, 553);
+            this.DownPanel.Name = "DownPanel";
+            this.DownPanel.Size = new System.Drawing.Size(1307, 49);
+            this.DownPanel.TabIndex = 2;
             // 
             // MainForm
             // 

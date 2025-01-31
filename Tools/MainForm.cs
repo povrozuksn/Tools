@@ -55,6 +55,44 @@ namespace Tools
                 }
 
             }
+        
+            
+        
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if(e.Node.Level == 0 && e.Node.Text == "Магазины")
+            {
+                ShopsUC shops = new ShopsUC();
+                shops.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(shops);
+            }
+            else if(e.Node.Level == 1 && e.Node.Parent.Text == "Магазины")
+            {
+
+                CategoryUC cats = new CategoryUC(e.Node.Tag.ToString());
+                cats.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(cats);
+            }
+            else if (e.Node.Level == 2 && e.Node.Parent.Parent.Text == "Магазины")
+            {
+
+                ToolsUC tools = new ToolsUC(e.Node.Tag.ToString());
+                tools.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(tools);
+            }
+            else if (e.Node.Level == 3 && e.Node.Parent.Parent.Parent.Text == "Магазины")
+            {
+
+                ProductUC prod = new ProductUC(e.Node.Tag.ToString());
+                prod.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(prod);
+            }
         }
     }
 }

@@ -19,7 +19,12 @@ namespace Tools
             id_shop = _id;
 
             List<string> shop_list = SQLClass.MySelect("SELECT id, name, pic FROM shops WHERE id = '" + id_shop + "'");
-            ShopPictureBox.Load("../../Pictures/" + shop_list[2]);
+            try 
+            { 
+                ShopPictureBox.Load("../../Pictures/" + shop_list[2]);            
+            }
+            catch (Exception) { }
+            
             ShopNameLabel.Text = shop_list[1];
 
 
