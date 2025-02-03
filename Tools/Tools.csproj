@@ -49,6 +49,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminCatUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminCatUC.Designer.cs">
+      <DependentUpon>AdminCatUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProductUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminProductUC.Designer.cs">
+      <DependentUpon>AdminProductUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminShopsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminShopsUC.Designer.cs">
+      <DependentUpon>AdminShopsUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUC.Designer.cs">
+      <DependentUpon>AdminUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUsersUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUsersUC.Designer.cs">
+      <DependentUpon>AdminUsersUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="CategoryUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -82,6 +112,21 @@
     <Compile Include="ToolsUC.Designer.cs">
       <DependentUpon>ToolsUC.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminCatUC.resx">
+      <DependentUpon>AdminCatUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminProductUC.resx">
+      <DependentUpon>AdminProductUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminShopsUC.resx">
+      <DependentUpon>AdminShopsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUC.resx">
+      <DependentUpon>AdminUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUsersUC.resx">
+      <DependentUpon>AdminUsersUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CategoryUC.resx">
       <DependentUpon>CategoryUC.cs</DependentUpon>
     </EmbeddedResource>

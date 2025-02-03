@@ -9,14 +9,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Tools
 {
     public partial class MainForm : Form
     {
+        public static string UserName = "";
+        public static string Login = "";
+        public static string UserSurname = "";
+        public static int isAdmin;
+
         public MainForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
+
+            HelloLabel.Visible = false;
+            AdminButton.Visible = false;
+            RegButton.Visible = true;
 
             ShopsUC shops = new ShopsUC();
             shops.Dock = DockStyle.Fill;
@@ -71,7 +81,6 @@ namespace Tools
             }
             else if(e.Node.Level == 1 && e.Node.Parent.Text == "Магазины")
             {
-
                 CategoryUC cats = new CategoryUC(e.Node.Tag.ToString());
                 cats.Dock = DockStyle.Fill;
                 InfoPanel.Controls.Clear();
@@ -79,7 +88,6 @@ namespace Tools
             }
             else if (e.Node.Level == 2 && e.Node.Parent.Parent.Text == "Магазины")
             {
-
                 ToolsUC tools = new ToolsUC(e.Node.Tag.ToString());
                 tools.Dock = DockStyle.Fill;
                 InfoPanel.Controls.Clear();
@@ -87,12 +95,78 @@ namespace Tools
             }
             else if (e.Node.Level == 3 && e.Node.Parent.Parent.Parent.Text == "Магазины")
             {
-
                 ProductUC prod = new ProductUC(e.Node.Tag.ToString());
                 prod.Dock = DockStyle.Fill;
                 InfoPanel.Controls.Clear();
                 InfoPanel.Controls.Add(prod);
             }
+        }
+
+        private void AuthButton_Click(object sender, EventArgs e)
+        {
+            List<string> user = SQLClass.MySelect("SELECT login, name, secondname, admin FROM users WHERE login = '" + LoginTextBox.Text + "' AND password = '" + PasTextBox.Text + "'");
+            if (AuthButton.Text == "Выйти")
+            {
+                UserName = "";
+                UserSurname = "";
+                Login = "";
+                isAdmin = 0;
+                AuthPanel.Controls.Clear();
+                AuthPanel.Controls.Add(label1);
+                AuthPanel.Controls.Add(label2);
+                LoginTextBox.Text = "";
+                AuthPanel.Controls.Add(LoginTextBox);
+                PasTextBox.Text = "";
+                AuthPanel.Controls.Add(PasTextBox);
+                AuthButton.Text = "Войти";
+                AuthPanel.Controls.Add(AuthButton);
+                HelloLabel.Text = "";
+                HelloLabel.Visible = false;
+                AdminButton.Visible = false;
+                AuthPanel.Controls.Add(AdminButton);
+                RegButton.Visible = true;
+                AuthPanel.Controls.Add(RegButton);
+
+            }
+            else
+            {
+                if (user.Count > 0)
+                {
+                    Login = user[0];
+                    UserName = user[1];
+                    UserSurname = user[2];
+                    isAdmin = Convert.ToInt32(user[3]);
+                    AuthPanel.Controls.Clear();
+                    AuthPanel.Controls.Add(HelloLabel);
+                    HelloLabel.Visible = true;
+                    HelloLabel.Text = "Приветствуем Вас, " + UserName + " " + UserSurname;
+                    AuthPanel.Controls.Add(AdminButton);
+                    AuthButton.Text = "Выйти";
+                    AdminButton.Visible = Convert.ToBoolean(isAdmin);
+                    AuthPanel.Controls.Add(AuthButton);
+                    RegButton.Visible = false;
+                    AuthPanel.Controls.Add(RegButton);
+                }
+                else
+                {
+                    LoginTextBox.Text = "";
+                    PasTextBox.Text = "";
+                    var result = MessageBox.Show("Вы указали неверный логин/пароль или незарегистрированы. Хотите зарегистрироваться?", "Ошибка авторизации", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        //RegForm regForm = new RegForm();
+                        //regForm.ShowDialog();
+                    }
+                }
+            }
+        }
+
+        private void AdminButton_Click(object sender, EventArgs e)
+        {
+            AdminUC admin = new AdminUC();
+            admin.Dock = DockStyle.Fill;
+            InfoPanel.Controls.Clear();
+            InfoPanel.Controls.Add(admin);
         }
     }
 }

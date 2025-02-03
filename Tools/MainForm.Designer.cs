@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Магазины");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Магазины");
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.RegButton = new System.Windows.Forms.Button();
             this.PasTextBox = new System.Windows.Forms.TextBox();
@@ -41,6 +41,8 @@
             this.InfoPanel = new System.Windows.Forms.Panel();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.DownPanel = new System.Windows.Forms.Panel();
+            this.AdminButton = new System.Windows.Forms.Button();
+            this.HelloLabel = new System.Windows.Forms.Label();
             this.AuthPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -49,6 +51,8 @@
             // AuthPanel
             // 
             this.AuthPanel.BackColor = System.Drawing.SystemColors.Info;
+            this.AuthPanel.Controls.Add(this.HelloLabel);
+            this.AuthPanel.Controls.Add(this.AdminButton);
             this.AuthPanel.Controls.Add(this.RegButton);
             this.AuthPanel.Controls.Add(this.PasTextBox);
             this.AuthPanel.Controls.Add(this.label2);
@@ -74,6 +78,7 @@
             // 
             this.PasTextBox.Location = new System.Drawing.Point(405, 12);
             this.PasTextBox.Name = "PasTextBox";
+            this.PasTextBox.PasswordChar = '*';
             this.PasTextBox.Size = new System.Drawing.Size(163, 30);
             this.PasTextBox.TabIndex = 4;
             // 
@@ -110,6 +115,7 @@
             this.AuthButton.TabIndex = 0;
             this.AuthButton.Text = "Войти";
             this.AuthButton.UseVisualStyleBackColor = true;
+            this.AuthButton.Click += new System.EventHandler(this.AuthButton_Click);
             // 
             // MainPanel
             // 
@@ -149,10 +155,10 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(6, 6);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Узел0";
-            treeNode1.Text = "Магазины";
+            treeNode5.Name = "Узел0";
+            treeNode5.Text = "Магазины";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode5});
             this.treeView1.Size = new System.Drawing.Size(328, 479);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -165,6 +171,25 @@
             this.DownPanel.Name = "DownPanel";
             this.DownPanel.Size = new System.Drawing.Size(1307, 49);
             this.DownPanel.TabIndex = 2;
+            // 
+            // AdminButton
+            // 
+            this.AdminButton.Location = new System.Drawing.Point(900, 9);
+            this.AdminButton.Name = "AdminButton";
+            this.AdminButton.Size = new System.Drawing.Size(225, 30);
+            this.AdminButton.TabIndex = 5;
+            this.AdminButton.Text = "Панель администратора";
+            this.AdminButton.UseVisualStyleBackColor = true;
+            this.AdminButton.Click += new System.EventHandler(this.AdminButton_Click);
+            // 
+            // HelloLabel
+            // 
+            this.HelloLabel.AutoSize = true;
+            this.HelloLabel.Location = new System.Drawing.Point(16, 17);
+            this.HelloLabel.Name = "HelloLabel";
+            this.HelloLabel.Size = new System.Drawing.Size(64, 25);
+            this.HelloLabel.TabIndex = 6;
+            this.HelloLabel.Text = "label3";
             // 
             // MainForm
             // 
@@ -201,6 +226,8 @@
         private System.Windows.Forms.Button RegButton;
         public System.Windows.Forms.Panel InfoPanel;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Button AdminButton;
+        private System.Windows.Forms.Label HelloLabel;
     }
 }
 
