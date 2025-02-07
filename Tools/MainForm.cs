@@ -100,6 +100,41 @@ namespace Tools
                 InfoPanel.Controls.Clear();
                 InfoPanel.Controls.Add(prod);
             }
+            else if(e.Node.Level == 0 && e.Node.Text == "Администрирование")
+            {
+                AdminUC admin = new AdminUC();
+                admin.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(admin);
+            }
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Администрирование" && e.Node.Text == "Управление магазинами")
+            {
+                AdminShopsUC adminshops = new AdminShopsUC();
+                adminshops.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(adminshops);
+            }
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Администрирование" && e.Node.Text == "Управление категориями")
+            {
+                AdminCatUC admincats = new AdminCatUC();
+                admincats.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(admincats);
+            }
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Администрирование" && e.Node.Text == "Управление товарами")
+            {
+                AdminProductUC adminprod = new AdminProductUC();
+                adminprod.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(adminprod);
+            }
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Администрирование" && e.Node.Text == "Управление пользователями")
+            {
+                AdminUsersUC adminusers = new AdminUsersUC();
+                adminusers.Dock = DockStyle.Fill;
+                InfoPanel.Controls.Clear();
+                InfoPanel.Controls.Add(adminusers);
+            }
         }
 
         private void AuthButton_Click(object sender, EventArgs e)
@@ -167,6 +202,31 @@ namespace Tools
             admin.Dock = DockStyle.Fill;
             InfoPanel.Controls.Clear();
             InfoPanel.Controls.Add(admin);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (isAdmin == 1 && treeView1.Nodes.Count == 1)
+            {
+                TreeNode node = new TreeNode("Администрирование");
+                treeView1.Nodes.Add(node);
+
+                TreeNode node1 = new TreeNode("Управление магазинами");
+                node.Nodes.Add(node1);
+
+                TreeNode node2 = new TreeNode("Управление категориями");
+                node.Nodes.Add(node2);
+
+                TreeNode node3 = new TreeNode("Управление товарами");
+                node.Nodes.Add(node3);
+
+                TreeNode node4 = new TreeNode("Управление пользователями");
+                node.Nodes.Add(node4);
+            }
+            else if (isAdmin != 1 && treeView1.Nodes.Count > 1) 
+            {
+                treeView1.Nodes.RemoveAt(1);
+            }
         }
     }
 }

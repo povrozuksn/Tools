@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Магазины");
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Магазины");
             this.AuthPanel = new System.Windows.Forms.Panel();
+            this.HelloLabel = new System.Windows.Forms.Label();
+            this.AdminButton = new System.Windows.Forms.Button();
             this.RegButton = new System.Windows.Forms.Button();
             this.PasTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,8 +44,7 @@
             this.InfoPanel = new System.Windows.Forms.Panel();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.DownPanel = new System.Windows.Forms.Panel();
-            this.AdminButton = new System.Windows.Forms.Button();
-            this.HelloLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.AuthPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -64,6 +66,25 @@
             this.AuthPanel.Name = "AuthPanel";
             this.AuthPanel.Size = new System.Drawing.Size(1307, 62);
             this.AuthPanel.TabIndex = 0;
+            // 
+            // HelloLabel
+            // 
+            this.HelloLabel.AutoSize = true;
+            this.HelloLabel.Location = new System.Drawing.Point(16, 17);
+            this.HelloLabel.Name = "HelloLabel";
+            this.HelloLabel.Size = new System.Drawing.Size(64, 25);
+            this.HelloLabel.TabIndex = 6;
+            this.HelloLabel.Text = "label3";
+            // 
+            // AdminButton
+            // 
+            this.AdminButton.Location = new System.Drawing.Point(900, 9);
+            this.AdminButton.Name = "AdminButton";
+            this.AdminButton.Size = new System.Drawing.Size(225, 30);
+            this.AdminButton.TabIndex = 5;
+            this.AdminButton.Text = "Панель администратора";
+            this.AdminButton.UseVisualStyleBackColor = true;
+            this.AdminButton.Click += new System.EventHandler(this.AdminButton_Click);
             // 
             // RegButton
             // 
@@ -155,10 +176,10 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(6, 6);
             this.treeView1.Name = "treeView1";
-            treeNode5.Name = "Узел0";
-            treeNode5.Text = "Магазины";
+            treeNode2.Name = "Узел0";
+            treeNode2.Text = "Магазины";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(328, 479);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -172,24 +193,10 @@
             this.DownPanel.Size = new System.Drawing.Size(1307, 49);
             this.DownPanel.TabIndex = 2;
             // 
-            // AdminButton
+            // timer1
             // 
-            this.AdminButton.Location = new System.Drawing.Point(900, 9);
-            this.AdminButton.Name = "AdminButton";
-            this.AdminButton.Size = new System.Drawing.Size(225, 30);
-            this.AdminButton.TabIndex = 5;
-            this.AdminButton.Text = "Панель администратора";
-            this.AdminButton.UseVisualStyleBackColor = true;
-            this.AdminButton.Click += new System.EventHandler(this.AdminButton_Click);
-            // 
-            // HelloLabel
-            // 
-            this.HelloLabel.AutoSize = true;
-            this.HelloLabel.Location = new System.Drawing.Point(16, 17);
-            this.HelloLabel.Name = "HelloLabel";
-            this.HelloLabel.Size = new System.Drawing.Size(64, 25);
-            this.HelloLabel.TabIndex = 6;
-            this.HelloLabel.Text = "label3";
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MainForm
             // 
@@ -228,6 +235,7 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Button AdminButton;
         private System.Windows.Forms.Label HelloLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
