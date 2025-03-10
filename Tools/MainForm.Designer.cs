@@ -45,6 +45,7 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.DownPanel = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.DesingButton = new System.Windows.Forms.Button();
             this.AuthPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -53,6 +54,7 @@
             // AuthPanel
             // 
             this.AuthPanel.BackColor = System.Drawing.SystemColors.Info;
+            this.AuthPanel.Controls.Add(this.DesingButton);
             this.AuthPanel.Controls.Add(this.HelloLabel);
             this.AuthPanel.Controls.Add(this.AdminButton);
             this.AuthPanel.Controls.Add(this.RegButton);
@@ -198,6 +200,16 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // DesingButton
+            // 
+            this.DesingButton.Location = new System.Drawing.Point(758, 10);
+            this.DesingButton.Name = "DesingButton";
+            this.DesingButton.Size = new System.Drawing.Size(131, 28);
+            this.DesingButton.TabIndex = 7;
+            this.DesingButton.Text = "Дизайн";
+            this.DesingButton.UseVisualStyleBackColor = true;
+            this.DesingButton.Click += new System.EventHandler(this.DesingButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -236,6 +248,7 @@
         private System.Windows.Forms.Button AdminButton;
         private System.Windows.Forms.Label HelloLabel;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button DesingButton;
     }
 }
 

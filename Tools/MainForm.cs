@@ -26,6 +26,7 @@ namespace Tools
 
             HelloLabel.Visible = false;
             AdminButton.Visible = false;
+            DesingButton.Visible = false;
             RegButton.Visible = true;
 
             ShopsUC shops = new ShopsUC();
@@ -158,7 +159,9 @@ namespace Tools
                 HelloLabel.Text = "";
                 HelloLabel.Visible = false;
                 AdminButton.Visible = false;
+                DesingButton.Visible = false;
                 AuthPanel.Controls.Add(AdminButton);
+                AuthPanel.Controls.Add(DesingButton);
                 RegButton.Visible = true;
                 AuthPanel.Controls.Add(RegButton);
 
@@ -176,8 +179,10 @@ namespace Tools
                     HelloLabel.Visible = true;
                     HelloLabel.Text = "Приветствуем Вас, " + UserName + " " + UserSurname;
                     AuthPanel.Controls.Add(AdminButton);
+                    AuthPanel.Controls.Add(DesingButton);
                     AuthButton.Text = "Выйти";
                     AdminButton.Visible = Convert.ToBoolean(isAdmin);
+                    DesingButton.Visible = Convert.ToBoolean(isAdmin);
                     AuthPanel.Controls.Add(AuthButton);
                     RegButton.Visible = false;
                     AuthPanel.Controls.Add(RegButton);
@@ -227,6 +232,14 @@ namespace Tools
             {
                 treeView1.Nodes.RemoveAt(1);
             }
+        }
+
+        private void DesingButton_Click(object sender, EventArgs e)
+        {
+            DesingUC desing = new DesingUC();
+            desing.Dock = DockStyle.Fill;
+            InfoPanel.Controls.Clear();
+            InfoPanel.Controls.Add(desing);
         }
     }
 }

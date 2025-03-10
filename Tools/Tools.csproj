@@ -85,6 +85,12 @@
     <Compile Include="CategoryUC.Designer.cs">
       <DependentUpon>CategoryUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="DesingUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DesingUC.Designer.cs">
+      <DependentUpon>DesingUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CategoryUC.resx">
       <DependentUpon>CategoryUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DesingUC.resx">
+      <DependentUpon>DesingUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUC.resx">
       <DependentUpon>ProductUC.cs</DependentUpon>
