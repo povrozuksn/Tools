@@ -31,7 +31,9 @@ namespace Tools
 
             ShopsUC shops = new ShopsUC();
             shops.Dock = DockStyle.Fill;
-            InfoPanel.Controls.Add(shops); 
+            InfoPanel.Controls.Add(shops);
+
+            DesingUC.ReadDesign();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

@@ -22,6 +22,12 @@ namespace Tools
             InitializeComponent();
         }
 
+        public static void ReadDesign()
+        {
+            string color = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.Label' AND parameter = 'Font_Color'")[0];
+            LABEL_COLOR_FONT = Color.FromArgb(Convert.ToInt32(color));
+        }
+
         private void LabelFontBTN_Click(object sender, EventArgs e)
         {
             fontDialog1.Font = LABEL_FONT;
@@ -33,6 +39,12 @@ namespace Tools
                 LABEL_COLOR_FONT = fontDialog1.Color;
 
                 DesingUC_Load(null, null);
+
+                SQLClass.MyUpDate("DELETE FROM design WHERE type = '" + label2.GetType() + "' AND parameter = 'Font'");
+                SQLClass.MyUpDate("DELETE FROM design WHERE type = '" + label2.GetType() + "' AND parameter = 'Font_Color'");
+
+                SQLClass.MyUpDate("INSERT INTO design (type, parameter, value) VALUES ('" + label2.GetType() + "', 'Font', '" + LABEL_FONT.Name + ";" + LABEL_FONT.Size.ToString() + "')");
+                SQLClass.MyUpDate("INSERT INTO design (type, parameter, value) VALUES ('" + label2.GetType() + "', 'Font_Color', '" + LABEL_COLOR_FONT.ToArgb() + "')");
             }
         }
 
