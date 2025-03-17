@@ -44,6 +44,8 @@ namespace Tools
                 x += 280;
                 
             }
+
+            DesingUC.ApplyDesign(this);
         }
 
         private void pb_Click(object sender, EventArgs e)

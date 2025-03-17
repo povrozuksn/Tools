@@ -34,6 +34,7 @@ namespace Tools
             InfoPanel.Controls.Add(shops);
 
             DesingUC.ReadDesign();
+            DesingUC.ApplyDesign(this);
         }
 
         private void MainForm_Load(object sender, EventArgs e)

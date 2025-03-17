@@ -24,8 +24,30 @@ namespace Tools
 
         public static void ReadDesign()
         {
+            #region Чтение параметров НАДПИСИ
             string color = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.Label' AND parameter = 'Font_Color'")[0];
             LABEL_COLOR_FONT = Color.FromArgb(Convert.ToInt32(color));
+
+            string font = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.Label' AND parameter = 'Font'")[0];
+            string[] parts = font.Split(new char[] {';'});
+            LABEL_FONT = new Font(new FontFamily(parts[0]), (float)Convert.ToDouble(parts[1]));
+            #endregion
+        }
+
+        public static void ApplyDesign(Control Form)
+        {
+            foreach(Control control_element in Form.Controls)
+            {
+                if(control_element is Label)
+                {
+                    control_element.Font = LABEL_FONT;
+                    control_element.ForeColor = LABEL_COLOR_FONT;
+                }
+                else
+                {
+                    ApplyDesign(control_element);
+                }
+            }
         }
 
         private void LabelFontBTN_Click(object sender, EventArgs e)

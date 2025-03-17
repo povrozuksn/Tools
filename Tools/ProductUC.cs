@@ -24,6 +24,8 @@ namespace Tools
             PriceLabel.Text = "Цена: " + product_list[3] + " руб.";
             QuantityLabel.Text = "Количество: " + product_list[4] + " шт.";
 
+            DesingUC.ApplyDesign(this);
+
         }
     }
 }

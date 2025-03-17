@@ -16,6 +16,7 @@ namespace Tools
         public CategoryUC(string _id)
         {
             InitializeComponent();
+
             id_shop = _id;
 
             List<string> shop_list = SQLClass.MySelect("SELECT id, name, pic FROM shops WHERE id = '" + id_shop + "'");
@@ -56,6 +57,7 @@ namespace Tools
 
             }
 
+            DesingUC.ApplyDesign(this);
         }
 
         private void pb_Click(object sender, EventArgs e)
