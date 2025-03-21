@@ -34,14 +34,22 @@
             this.LabelFontBTN = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.ExamplePanel = new System.Windows.Forms.Panel();
+            this.PanelColorBTN = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.PanelColorBTN = new System.Windows.Forms.Button();
-            this.ExamplePanel = new System.Windows.Forms.Panel();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.TextBoxFontBTN = new System.Windows.Forms.Button();
+            this.TextBoxColorBTN = new System.Windows.Forms.Button();
+            this.ExampleTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -68,6 +76,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.LabelFontBTN);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
@@ -99,6 +108,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.ExamplePanel);
             this.tabPage2.Controls.Add(this.PanelColorBTN);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
@@ -109,12 +119,30 @@
             this.tabPage2.Text = "Панель";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // fontDialog1
+            // ExamplePanel
             // 
-            this.fontDialog1.ShowColor = true;
+            this.ExamplePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ExamplePanel.Location = new System.Drawing.Point(504, 63);
+            this.ExamplePanel.Name = "ExamplePanel";
+            this.ExamplePanel.Size = new System.Drawing.Size(248, 251);
+            this.ExamplePanel.TabIndex = 1;
+            // 
+            // PanelColorBTN
+            // 
+            this.PanelColorBTN.Location = new System.Drawing.Point(64, 123);
+            this.PanelColorBTN.Name = "PanelColorBTN";
+            this.PanelColorBTN.Size = new System.Drawing.Size(384, 51);
+            this.PanelColorBTN.TabIndex = 0;
+            this.PanelColorBTN.Text = "Выберите цвет фона панели";
+            this.PanelColorBTN.UseVisualStyleBackColor = true;
+            this.PanelColorBTN.Click += new System.EventHandler(this.PanelColorBTN_Click);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.ExampleTextBox);
+            this.tabPage3.Controls.Add(this.TextBoxColorBTN);
+            this.tabPage3.Controls.Add(this.TextBoxFontBTN);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -133,22 +161,69 @@
             this.tabPage4.Text = "Кнопка";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // PanelColorBTN
+            // fontDialog1
             // 
-            this.PanelColorBTN.Location = new System.Drawing.Point(64, 123);
-            this.PanelColorBTN.Name = "PanelColorBTN";
-            this.PanelColorBTN.Size = new System.Drawing.Size(384, 51);
-            this.PanelColorBTN.TabIndex = 0;
-            this.PanelColorBTN.Text = "Выберите цвет фона панели";
-            this.PanelColorBTN.UseVisualStyleBackColor = true;
+            this.fontDialog1.ShowColor = true;
             // 
-            // ExamplePanel
+            // TextBoxFontBTN
             // 
-            this.ExamplePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ExamplePanel.Location = new System.Drawing.Point(504, 63);
-            this.ExamplePanel.Name = "ExamplePanel";
-            this.ExamplePanel.Size = new System.Drawing.Size(248, 251);
-            this.ExamplePanel.TabIndex = 1;
+            this.TextBoxFontBTN.Location = new System.Drawing.Point(17, 90);
+            this.TextBoxFontBTN.Name = "TextBoxFontBTN";
+            this.TextBoxFontBTN.Size = new System.Drawing.Size(549, 46);
+            this.TextBoxFontBTN.TabIndex = 0;
+            this.TextBoxFontBTN.Text = "Выберите шрифт, размер и цвет текста поля ввода";
+            this.TextBoxFontBTN.UseVisualStyleBackColor = true;
+            this.TextBoxFontBTN.Click += new System.EventHandler(this.TextBoxFontBTN_Click);
+            // 
+            // TextBoxColorBTN
+            // 
+            this.TextBoxColorBTN.Location = new System.Drawing.Point(17, 154);
+            this.TextBoxColorBTN.Name = "TextBoxColorBTN";
+            this.TextBoxColorBTN.Size = new System.Drawing.Size(549, 51);
+            this.TextBoxColorBTN.TabIndex = 1;
+            this.TextBoxColorBTN.Text = "Выберите цвет фона панели";
+            this.TextBoxColorBTN.UseVisualStyleBackColor = true;
+            this.TextBoxColorBTN.Click += new System.EventHandler(this.TextBoxColorBTN_Click);
+            // 
+            // ExampleTextBox
+            // 
+            this.ExampleTextBox.Location = new System.Drawing.Point(572, 126);
+            this.ExampleTextBox.Name = "ExampleTextBox";
+            this.ExampleTextBox.Size = new System.Drawing.Size(298, 30);
+            this.ExampleTextBox.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(588, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Образец";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(499, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 25);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Образец";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(572, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 25);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Образец";
             // 
             // DesingUC
             // 
@@ -165,6 +240,9 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,5 +261,12 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Panel ExamplePanel;
         private System.Windows.Forms.Button PanelColorBTN;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button TextBoxFontBTN;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox ExampleTextBox;
+        private System.Windows.Forms.Button TextBoxColorBTN;
+        private System.Windows.Forms.Label label5;
     }
 }
