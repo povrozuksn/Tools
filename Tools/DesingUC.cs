@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Tools
 {
@@ -22,10 +21,16 @@ namespace Tools
         public static Color PANEL_COLOR;
         #endregion
 
-        #region
+        #region Свойства ПОЛЯ ВВОДА
         public static Font TEXTBOX_FONT;
         public static Color TEXTBOX_COLOR_FONT;
         public static Color TEXTBOX_COLOR;
+        #endregion
+
+        #region Свойства КНОПКИ
+        public static Font BUTTON_FONT;
+        public static Color BUTTON_COLOR_FONT;
+        public static Color BUTTON_COLOR;
         #endregion
 
 
@@ -40,9 +45,9 @@ namespace Tools
             string label_color = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.Label' AND parameter = 'Font_Color'")[0];
             LABEL_COLOR_FONT = Color.FromArgb(Convert.ToInt32(label_color));
 
-            string font = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.Label' AND parameter = 'Font'")[0];
-            string[] parts = font.Split(new char[] {';'});
-            LABEL_FONT = new Font(new FontFamily(parts[0]), (float)Convert.ToDouble(parts[1]));
+            string label_font = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.Label' AND parameter = 'Font'")[0];
+            string[] label_parts = label_font.Split(new char[] {';'});
+            LABEL_FONT = new Font(new FontFamily(label_parts[0]), (float)Convert.ToDouble(label_parts[1]));
             #endregion
 
             #region Чтение параметров ПАНЕЛИ
@@ -51,7 +56,28 @@ namespace Tools
             #endregion
 
             #region Чтение параметров TEXTBOXa
+            string textbox_fontcolor = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.TextBox' AND parameter = 'Font_Color'")[0];
+            TEXTBOX_COLOR_FONT = Color.FromArgb(Convert.ToInt32(textbox_fontcolor));
 
+            string textbox_font = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.TextBox' AND parameter = 'Font'")[0];
+            string[] textbox_parts = textbox_font.Split(new char[] { ';' });
+            TEXTBOX_FONT = new Font(new FontFamily(textbox_parts[0]), (float)Convert.ToDouble(textbox_parts[1]));
+
+            string textbox_bgcolor = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.TextBox' AND parameter = 'BackColor'")[0];
+            TEXTBOX_COLOR = Color.FromArgb(Convert.ToInt32(textbox_bgcolor));
+            #endregion
+
+
+            #region Чтение параметров КНОПКИ
+            string button_fontcolor = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.Button' AND parameter = 'Font_Color'")[0];
+            BUTTON_COLOR_FONT = Color.FromArgb(Convert.ToInt32(button_fontcolor));
+
+            string button_font = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.Button' AND parameter = 'Font'")[0];
+            string[] button_parts = button_font.Split(new char[] { ';' });
+            BUTTON_FONT = new Font(new FontFamily(button_parts[0]), (float)Convert.ToDouble(button_parts[1]));
+
+            string button_bgcolor = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.Button' AND parameter = 'BackColor'")[0];
+            BUTTON_COLOR = Color.FromArgb(Convert.ToInt32(button_bgcolor));
             #endregion
         }
 
@@ -71,6 +97,26 @@ namespace Tools
                 if (control_element is Panel)
                 {
                     control_element.BackColor = PANEL_COLOR;
+                }
+                else
+                {
+                    ApplyDesign(control_element);
+                }
+                if (control_element is TextBox)
+                {
+                    control_element.Font = TEXTBOX_FONT;
+                    control_element.ForeColor = TEXTBOX_COLOR_FONT;
+                    control_element.BackColor = TEXTBOX_COLOR;
+                }
+                else
+                {
+                    ApplyDesign(control_element);
+                }
+                if (control_element is Button)
+                {
+                    control_element.Font = BUTTON_FONT;
+                    control_element.ForeColor = BUTTON_COLOR_FONT;
+                    control_element.BackColor = BUTTON_COLOR;
                 }
                 else
                 {
@@ -109,7 +155,11 @@ namespace Tools
             ExampleTextBox.Font = TEXTBOX_FONT;
             ExampleTextBox.ForeColor = TEXTBOX_COLOR_FONT;
             ExampleTextBox.BackColor = TEXTBOX_COLOR;
-            
+
+            ExampleButton.Font = BUTTON_FONT;
+            ExampleButton.ForeColor = BUTTON_COLOR_FONT;
+            ExampleButton.BackColor = BUTTON_COLOR;
+
         }
 
         private void PanelColorBTN_Click(object sender, EventArgs e)
@@ -162,7 +212,41 @@ namespace Tools
 
                 SQLClass.MyUpDate("INSERT INTO design (type, parameter, value) VALUES ('" + ExampleTextBox.GetType() + "', 'BackColor', '" + TEXTBOX_COLOR.ToArgb() + "')");
             }
+        }
 
+        private void ButtonFontBTN_Click(object sender, EventArgs e)
+        {
+            fontDialog1.Font = BUTTON_FONT;
+            fontDialog1.Color = BUTTON_COLOR_FONT;
+
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                BUTTON_FONT = fontDialog1.Font;
+                BUTTON_COLOR_FONT = fontDialog1.Color;
+
+                DesingUC_Load(null, null);
+
+                SQLClass.MyUpDate("DELETE FROM design WHERE type = '" + ExampleButton.GetType() + "' AND parameter = 'Font'");
+                SQLClass.MyUpDate("DELETE FROM design WHERE type = '" + ExampleButton.GetType() + "' AND parameter = 'Font_Color'");
+
+                SQLClass.MyUpDate("INSERT INTO design (type, parameter, value) VALUES ('" + ExampleButton.GetType() + "', 'Font', '" + BUTTON_FONT.Name + ";" + BUTTON_FONT.Size.ToString() + "')");
+                SQLClass.MyUpDate("INSERT INTO design (type, parameter, value) VALUES ('" + ExampleButton.GetType() + "', 'Font_Color', '" + BUTTON_COLOR_FONT.ToArgb() + "')");
+            }
+        }
+
+        private void ButtonColorBTN_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = BUTTON_COLOR;
+
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                BUTTON_COLOR = colorDialog1.Color;
+                DesingUC_Load(null, null);
+
+                SQLClass.MyUpDate("DELETE FROM design WHERE type = '" + ExampleButton.GetType() + "' AND parameter = 'BackColor'");
+
+                SQLClass.MyUpDate("INSERT INTO design (type, parameter, value) VALUES ('" + ExampleButton.GetType() + "', 'BackColor', '" + BUTTON_COLOR.ToArgb() + "')");
+            }
         }
     }
 }
