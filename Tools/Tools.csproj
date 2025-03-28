@@ -85,6 +85,12 @@
     <Compile Include="CategoryUC.Designer.cs">
       <DependentUpon>CategoryUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="DesignButtonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DesignButtonForm.Designer.cs">
+      <DependentUpon>DesignButtonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DesingUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CategoryUC.resx">
       <DependentUpon>CategoryUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DesignButtonForm.resx">
+      <DependentUpon>DesignButtonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DesingUC.resx">
       <DependentUpon>DesingUC.cs</DependentUpon>

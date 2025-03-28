@@ -33,6 +33,8 @@ namespace Tools
         public static Color BUTTON_COLOR;
         #endregion
 
+        public static ContextMenuStrip BUTTON_CM;
+
 
         public DesingUC()
         {
@@ -66,7 +68,6 @@ namespace Tools
             string textbox_bgcolor = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.TextBox' AND parameter = 'BackColor'")[0];
             TEXTBOX_COLOR = Color.FromArgb(Convert.ToInt32(textbox_bgcolor));
             #endregion
-
 
             #region Чтение параметров КНОПКИ
             string button_fontcolor = SQLClass.MySelect("SELECT value FROM design WHERE type = 'System.Windows.Forms.Button' AND parameter = 'Font_Color'")[0];
@@ -247,6 +248,22 @@ namespace Tools
 
                 SQLClass.MyUpDate("INSERT INTO design (type, parameter, value) VALUES ('" + ExampleButton.GetType() + "', 'BackColor', '" + BUTTON_COLOR.ToArgb() + "')");
             }
+        }
+
+        public static void ApplyMenu(Control Form)
+        {
+            foreach (Control ctrl in Form.Controls)
+            {
+                if(ctrl is Button)
+                {
+                    ctrl.ContextMenuStrip = BUTTON_CM;
+                }
+                else
+                {
+                    ApplyMenu(ctrl);
+                }
+            }
+
         }
     }
 }

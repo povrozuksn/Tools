@@ -35,12 +35,16 @@ namespace Tools
 
             DesingUC.ReadDesign();
             DesingUC.ApplyDesign(this);
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             string id_level1;
             string id_level2;
+
+            DesingUC.BUTTON_CM = contextMenuStrip1;
+            DesingUC.ApplyMenu(this);
 
             List<string> shops = SQLClass.MySelect("SELECT id, name FROM shops");
             for(int i=0; i<shops.Count; i+=2)
@@ -243,6 +247,20 @@ namespace Tools
             desing.Dock = DockStyle.Fill;
             InfoPanel.Controls.Clear();
             InfoPanel.Controls.Add(desing);
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void DisignBottonCMS_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            ContextMenuStrip cm = (ContextMenuStrip)(item.GetCurrentParent());
+            Button btn = (Button)(cm.SourceControl);
+            DesignButtonForm designButton = new DesignButtonForm(btn);
+            designButton.ShowDialog();
         }
     }
 }
