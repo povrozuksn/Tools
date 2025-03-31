@@ -64,6 +64,7 @@
             this.ButtonColorBTN.TabIndex = 9;
             this.ButtonColorBTN.Text = "Выберите цвет фона  кнопки";
             this.ButtonColorBTN.UseVisualStyleBackColor = true;
+            this.ButtonColorBTN.Click += new System.EventHandler(this.ButtonColorBTN_Click);
             // 
             // ButtonFontBTN
             // 
@@ -73,6 +74,11 @@
             this.ButtonFontBTN.TabIndex = 8;
             this.ButtonFontBTN.Text = "Выберите шрифт, размер и цвет текста кнопки";
             this.ButtonFontBTN.UseVisualStyleBackColor = true;
+            this.ButtonFontBTN.Click += new System.EventHandler(this.ButtonFontBTN_Click);
+            // 
+            // fontDialog1
+            // 
+            this.fontDialog1.ShowColor = true;
             // 
             // DesignButtonForm
             // 
@@ -87,6 +93,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DesignButtonForm";
             this.Text = "DesignButtonForm";
+            this.Load += new System.EventHandler(this.DesignButtonForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
