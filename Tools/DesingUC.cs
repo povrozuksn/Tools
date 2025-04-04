@@ -85,15 +85,26 @@ namespace Tools
         public static void ReadUniqueDesign(Button btn)
         {
             #region Чтение параметров уникального дизайна КНОПКИ
-            string button_fontcolor = SQLClass.MySelect("SELECT value FROM uniquedesign WHERE type = 'System.Windows.Forms.Button' AND parameter = 'Font_Color' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "'")[0];
-            btn.ForeColor = Color.FromArgb(Convert.ToInt32(button_fontcolor));
-            /*
-            string button_font = SQLClass.MySelect("SELECT value FROM uniquedesign WHERE type = 'System.Windows.Forms.Button' AND parameter = 'Font'")[0];
-            string[] button_parts = button_font.Split(new char[] { ';' });
-            BUTTON_FONT = new Font(new FontFamily(button_parts[0]), (float)Convert.ToDouble(button_parts[1]));
 
-            string button_bgcolor = SQLClass.MySelect("SELECT value FROM uniquedesign WHERE type = 'System.Windows.Forms.Button' AND parameter = 'BackColor'")[0];
-            BUTTON_COLOR = Color.FromArgb(Convert.ToInt32(button_bgcolor));*/
+            try
+            {
+                string button_fontcolor = SQLClass.MySelect("SELECT value FROM uniquedesign WHERE type = 'System.Windows.Forms.Button' AND parameter = 'Font_Color' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "'")[0];
+                btn.ForeColor = Color.FromArgb(Convert.ToInt32(button_fontcolor));
+            }
+            catch (Exception) { }
+            try
+            {
+                string button_font = SQLClass.MySelect("SELECT value FROM uniquedesign WHERE type = 'System.Windows.Forms.Button' AND parameter = 'Font' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "'")[0];
+                string[] button_parts = button_font.Split(new char[] { ';' });
+                btn.Font = new Font(new FontFamily(button_parts[0]), (float)Convert.ToDouble(button_parts[1]));
+            }
+            catch (Exception) { }
+            try
+            {
+                string button_bgcolor = SQLClass.MySelect("SELECT value FROM uniquedesign WHERE type = 'System.Windows.Forms.Button' AND parameter = 'Color' AND name = '" + btn.Name + "' AND form = '" + btn.FindForm().Name + "'")[0];
+                btn.BackColor = Color.FromArgb(Convert.ToInt32(button_bgcolor));
+            }
+            catch (Exception) { }
             #endregion
 
         }
