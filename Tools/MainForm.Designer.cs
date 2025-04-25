@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Магазины");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Магазины");
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.DesingButton = new System.Windows.Forms.Button();
             this.HelloLabel = new System.Windows.Forms.Label();
@@ -48,10 +48,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DisignBottonCMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ChangeBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -156,10 +159,10 @@
             // MainPanel
             // 
             this.MainPanel.Controls.Add(this.tableLayoutPanel1);
-            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 62);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1307, 491);
+            this.MainPanel.Size = new System.Drawing.Size(1307, 540);
             this.MainPanel.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -175,7 +178,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1307, 491);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1307, 540);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // InfoPanel
@@ -183,7 +186,7 @@
             this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InfoPanel.Location = new System.Drawing.Point(343, 6);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(958, 479);
+            this.InfoPanel.Size = new System.Drawing.Size(958, 528);
             this.InfoPanel.TabIndex = 0;
             // 
             // treeView1
@@ -191,18 +194,20 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(6, 6);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "Узел0";
-            treeNode2.Text = "Магазины";
+            treeNode4.Name = "Узел0";
+            treeNode4.Text = "Магазины";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
-            this.treeView1.Size = new System.Drawing.Size(328, 479);
+            treeNode4});
+            this.treeView1.Size = new System.Drawing.Size(328, 528);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // DownPanel
             // 
             this.DownPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.DownPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DownPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DownPanel.ContextMenuStrip = this.contextMenuStrip2;
+            this.DownPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DownPanel.Location = new System.Drawing.Point(0, 553);
             this.DownPanel.Name = "DownPanel";
             this.DownPanel.Size = new System.Drawing.Size(1307, 49);
@@ -219,15 +224,30 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DisignBottonCMS});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(200, 28);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // DisignBottonCMS
             // 
             this.DisignBottonCMS.Name = "DisignBottonCMS";
-            this.DisignBottonCMS.Size = new System.Drawing.Size(210, 24);
+            this.DisignBottonCMS.Size = new System.Drawing.Size(199, 24);
             this.DisignBottonCMS.Text = "Дизайн элемента";
             this.DisignBottonCMS.Click += new System.EventHandler(this.DisignBottonCMS_Click);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ChangeBlockToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(204, 28);
+            // 
+            // ChangeBlockToolStripMenuItem
+            // 
+            this.ChangeBlockToolStripMenuItem.Name = "ChangeBlockToolStripMenuItem";
+            this.ChangeBlockToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.ChangeBlockToolStripMenuItem.Text = "Изменение блока";
+            this.ChangeBlockToolStripMenuItem.Click += new System.EventHandler(this.ChangeBlockToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -247,6 +267,7 @@
             this.MainPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -271,6 +292,8 @@
         private System.Windows.Forms.Button DesingButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem DisignBottonCMS;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem ChangeBlockToolStripMenuItem;
     }
 }
 

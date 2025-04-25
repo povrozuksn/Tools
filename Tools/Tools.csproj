@@ -85,6 +85,12 @@
     <Compile Include="CategoryUC.Designer.cs">
       <DependentUpon>CategoryUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeBlockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeBlockForm.Designer.cs">
+      <DependentUpon>ChangeBlockForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DesignButtonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CategoryUC.resx">
       <DependentUpon>CategoryUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeBlockForm.resx">
+      <DependentUpon>ChangeBlockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DesignButtonForm.resx">
       <DependentUpon>DesignButtonForm.cs</DependentUpon>

@@ -262,5 +262,14 @@ namespace Tools
             DesignButtonForm designButton = new DesignButtonForm(btn);
             designButton.ShowDialog();
         }
+
+        private void ChangeBlockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            ContextMenuStrip cm = (ContextMenuStrip)(item.GetCurrentParent());
+            Panel panel = (Panel)cm.SourceControl;
+            ChangeBlockForm changeBlock = new ChangeBlockForm(panel);
+            changeBlock.ShowDialog();
+        }
     }
 }
