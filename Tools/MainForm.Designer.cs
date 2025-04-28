@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Магазины");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Магазины");
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.DesingButton = new System.Windows.Forms.Button();
             this.HelloLabel = new System.Windows.Forms.Label();
@@ -45,16 +45,19 @@
             this.InfoPanel = new System.Windows.Forms.Panel();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.DownPanel = new System.Windows.Forms.Panel();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ChangeBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DisignBottonCMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ChangeBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.changeWidthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -191,13 +194,14 @@
             // 
             // treeView1
             // 
+            this.treeView1.ContextMenuStrip = this.contextMenuStrip3;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(6, 6);
             this.treeView1.Name = "treeView1";
-            treeNode4.Name = "Узел0";
-            treeNode4.Text = "Магазины";
+            treeNode1.Name = "Узел0";
+            treeNode1.Text = "Магазины";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(328, 528);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -212,6 +216,21 @@
             this.DownPanel.Name = "DownPanel";
             this.DownPanel.Size = new System.Drawing.Size(1307, 49);
             this.DownPanel.TabIndex = 2;
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ChangeBlockToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(260, 28);
+            // 
+            // ChangeBlockToolStripMenuItem
+            // 
+            this.ChangeBlockToolStripMenuItem.Name = "ChangeBlockToolStripMenuItem";
+            this.ChangeBlockToolStripMenuItem.Size = new System.Drawing.Size(259, 24);
+            this.ChangeBlockToolStripMenuItem.Text = "Изменение высоты блока";
+            this.ChangeBlockToolStripMenuItem.Click += new System.EventHandler(this.ChangeBlockToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -234,20 +253,20 @@
             this.DisignBottonCMS.Text = "Дизайн элемента";
             this.DisignBottonCMS.Click += new System.EventHandler(this.DisignBottonCMS_Click);
             // 
-            // contextMenuStrip2
+            // contextMenuStrip3
             // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ChangeBlockToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(204, 28);
+            this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeWidthToolStripMenuItem});
+            this.contextMenuStrip3.Name = "contextMenuStrip3";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(267, 56);
             // 
-            // ChangeBlockToolStripMenuItem
+            // changeWidthToolStripMenuItem
             // 
-            this.ChangeBlockToolStripMenuItem.Name = "ChangeBlockToolStripMenuItem";
-            this.ChangeBlockToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.ChangeBlockToolStripMenuItem.Text = "Изменение блока";
-            this.ChangeBlockToolStripMenuItem.Click += new System.EventHandler(this.ChangeBlockToolStripMenuItem_Click);
+            this.changeWidthToolStripMenuItem.Name = "changeWidthToolStripMenuItem";
+            this.changeWidthToolStripMenuItem.Size = new System.Drawing.Size(266, 24);
+            this.changeWidthToolStripMenuItem.Text = "Изменение ширины блока";
+            this.changeWidthToolStripMenuItem.Click += new System.EventHandler(this.changeWidthToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -266,8 +285,9 @@
             this.AuthPanel.PerformLayout();
             this.MainPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -294,6 +314,8 @@
         private System.Windows.Forms.ToolStripMenuItem DisignBottonCMS;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem ChangeBlockToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem changeWidthToolStripMenuItem;
     }
 }
 

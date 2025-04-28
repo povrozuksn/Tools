@@ -109,6 +109,23 @@ namespace Tools
 
         }
 
+        public static void ReadBlockDesign(Control block)
+        {           
+            #region Чтение размеров блока из БД 
+            try
+            {
+                string height = SQLClass.MySelect("SELECT value FROM uniquedesign WHERE type = 'System.Windows.Forms.Panel' AND parameter = 'Height' AND name = '" + block.Name + "' AND form = '" + block.FindForm().Name + "'")[0];
+
+                if (block is Panel)
+                {
+                    block.Size = new Size(block.Width, Convert.ToInt32(height));
+                }
+
+            }
+            catch (Exception) { }
+            #endregion
+        }
+
         public static void ApplyDesign(Control Form)
         {
             foreach(Control control_element in Form.Controls)
@@ -125,6 +142,7 @@ namespace Tools
                 if (control_element is Panel)
                 {
                     control_element.BackColor = PANEL_COLOR;
+                    ReadBlockDesign(control_element as Panel);
                 }
                 else
                 {

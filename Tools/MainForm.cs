@@ -271,5 +271,17 @@ namespace Tools
             ChangeBlockForm changeBlock = new ChangeBlockForm(panel);
             changeBlock.ShowDialog();
         }
+
+        private void changeWidthToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            ContextMenuStrip cm = (ContextMenuStrip)(item.GetCurrentParent());
+            TreeView tv = (TreeView)cm.SourceControl;
+            TableLayoutPanel table = (TableLayoutPanel)tv.Parent;
+            TableLayoutPanelCellPosition pos = table.GetPositionFromControl(tv);
+
+            ChangeHeightForm chf = new ChangeHeightForm(tv);
+            chf.ShowDialog();
+        }
     }
 }
