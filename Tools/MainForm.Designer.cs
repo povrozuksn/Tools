@@ -44,20 +44,22 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.InfoPanel = new System.Windows.Forms.Panel();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.changeWidthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DownPanel = new System.Windows.Forms.Panel();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ChangeBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DisignBottonCMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.changeWidthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WeatherLabel = new System.Windows.Forms.Label();
             this.AuthPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.contextMenuStrip3.SuspendLayout();
+            this.DownPanel.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
-            this.contextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -206,11 +208,27 @@
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeWidthToolStripMenuItem});
+            this.contextMenuStrip3.Name = "contextMenuStrip3";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(267, 28);
+            // 
+            // changeWidthToolStripMenuItem
+            // 
+            this.changeWidthToolStripMenuItem.Name = "changeWidthToolStripMenuItem";
+            this.changeWidthToolStripMenuItem.Size = new System.Drawing.Size(266, 24);
+            this.changeWidthToolStripMenuItem.Text = "Изменение ширины блока";
+            this.changeWidthToolStripMenuItem.Click += new System.EventHandler(this.changeWidthToolStripMenuItem_Click);
+            // 
             // DownPanel
             // 
             this.DownPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.DownPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DownPanel.ContextMenuStrip = this.contextMenuStrip2;
+            this.DownPanel.Controls.Add(this.WeatherLabel);
             this.DownPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DownPanel.Location = new System.Drawing.Point(0, 553);
             this.DownPanel.Name = "DownPanel";
@@ -253,20 +271,14 @@
             this.DisignBottonCMS.Text = "Дизайн элемента";
             this.DisignBottonCMS.Click += new System.EventHandler(this.DisignBottonCMS_Click);
             // 
-            // contextMenuStrip3
+            // WeatherLabel
             // 
-            this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changeWidthToolStripMenuItem});
-            this.contextMenuStrip3.Name = "contextMenuStrip3";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(267, 56);
-            // 
-            // changeWidthToolStripMenuItem
-            // 
-            this.changeWidthToolStripMenuItem.Name = "changeWidthToolStripMenuItem";
-            this.changeWidthToolStripMenuItem.Size = new System.Drawing.Size(266, 24);
-            this.changeWidthToolStripMenuItem.Text = "Изменение ширины блока";
-            this.changeWidthToolStripMenuItem.Click += new System.EventHandler(this.changeWidthToolStripMenuItem_Click);
+            this.WeatherLabel.AutoSize = true;
+            this.WeatherLabel.Location = new System.Drawing.Point(15, 14);
+            this.WeatherLabel.Name = "WeatherLabel";
+            this.WeatherLabel.Size = new System.Drawing.Size(64, 25);
+            this.WeatherLabel.TabIndex = 0;
+            this.WeatherLabel.Text = "label3";
             // 
             // MainForm
             // 
@@ -285,9 +297,11 @@
             this.AuthPanel.PerformLayout();
             this.MainPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.contextMenuStrip3.ResumeLayout(false);
+            this.DownPanel.ResumeLayout(false);
+            this.DownPanel.PerformLayout();
             this.contextMenuStrip2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
-            this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -316,6 +330,7 @@
         private System.Windows.Forms.ToolStripMenuItem ChangeBlockToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
         private System.Windows.Forms.ToolStripMenuItem changeWidthToolStripMenuItem;
+        private System.Windows.Forms.Label WeatherLabel;
     }
 }
 

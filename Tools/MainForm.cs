@@ -35,7 +35,11 @@ namespace Tools
 
             DesingUC.ReadDesign();
             DesingUC.ApplyDesign(this);
-            
+
+            APIClass.Weather();
+            WeatherLabel.Text = "Температура: " + APIClass.temper + "°C";
+
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -277,11 +281,13 @@ namespace Tools
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
             ContextMenuStrip cm = (ContextMenuStrip)(item.GetCurrentParent());
             TreeView tv = (TreeView)cm.SourceControl;
-            TableLayoutPanel table = (TableLayoutPanel)tv.Parent;
-            TableLayoutPanelCellPosition pos = table.GetPositionFromControl(tv);
+            //TableLayoutPanel table = (TableLayoutPanel)tv.Parent;
+            //TableLayoutPanelCellPosition pos = table.GetPositionFromControl(tv);
 
             ChangeHeightForm chf = new ChangeHeightForm(tv);
             chf.ShowDialog();
+
+            tableLayoutPanel1.ColumnStyles[0].Width = ChangeHeightForm.width;
         }
     }
 }
