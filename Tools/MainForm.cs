@@ -36,10 +36,12 @@ namespace Tools
             DesingUC.ReadDesign();
             DesingUC.ApplyDesign(this);
 
-            APIClass.Weather();
+            //APIClass.Weather();
             WeatherLabel.Text = "Температура: " + APIClass.temper + "°C";
 
-
+            APIClass.Vals();
+            ValsLabel.Text = "Курсы валют: $-" + APIClass.vals["USD"] + ", €-" + APIClass.vals["EUR"] + ", ¥-" + APIClass.vals["CNY"];
+            ValComboBox.SelectedIndex = 0;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
