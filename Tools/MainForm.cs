@@ -19,6 +19,8 @@ namespace Tools
         public static string Login = "";
         public static string UserSurname = "";
         public static int isAdmin;
+        public static string OldVal = "RUB";
+        public static string NewVal = "RUB";
 
         public MainForm()
         {
@@ -36,7 +38,7 @@ namespace Tools
             DesingUC.ReadDesign();
             DesingUC.ApplyDesign(this);
 
-            //APIClass.Weather();
+            APIClass.Weather();
             WeatherLabel.Text = "Температура: " + APIClass.temper + "°C";
 
             APIClass.Vals();
@@ -290,6 +292,45 @@ namespace Tools
             chf.ShowDialog();
 
             tableLayoutPanel1.ColumnStyles[0].Width = ChangeHeightForm.width;
+        }
+
+        private void ValComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OldVal = NewVal;
+            NewVal = ValComboBox.Text;
+
+            double coef = APIClass.vals[OldVal] / APIClass.vals[NewVal];
+
+            var pricelbl = Controls.Find("PriceLabel", true);
+
+            foreach(Label lbl in pricelbl)
+            {
+                double price = Convert.ToDouble(lbl.Text);
+                price = Math.Round((price * coef), 2);
+                lbl.Text = price.ToString();
+            }
+
+            var vallbl = Controls.Find("ValLabel", true);
+
+            foreach (Label lbl in vallbl)
+            {
+                if(NewVal=="RUB")
+                {
+                    lbl.Text = "Цена, руб.: ";
+                }
+                else if (NewVal == "USD")
+                {
+                    lbl.Text = "Цена, $: ";
+                }
+                else if (NewVal == "EUR")
+                {
+                    lbl.Text = "Цена, €: ";
+                }
+                else if (NewVal == "CNY")
+                {
+                    lbl.Text = "Цена, ¥: ";
+                }
+            }
         }
     }
 }

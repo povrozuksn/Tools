@@ -21,7 +21,9 @@ namespace Tools
             List<string> product_list = SQLClass.MySelect("SELECT id, name, pic, price, quantity FROM tools WHERE id = '" + id_product + "'");
             ProductPB.Load("../../Pictures/" + product_list[2]);
             ProductLabel.Text = product_list[1];
-            PriceLabel.Text = "Цена, руб.: " + product_list[3];
+
+            ValLabel.Text = "Цена, руб.: ";
+            PriceLabel.Text = product_list[3];
             QuantityLabel.Text = "Количество: " + product_list[4] + " шт.";
 
             DesingUC.ApplyDesign(this);

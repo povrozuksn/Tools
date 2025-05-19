@@ -33,6 +33,7 @@
             this.OpisTB = new System.Windows.Forms.TextBox();
             this.PriceLabel = new System.Windows.Forms.Label();
             this.QuantityLabel = new System.Windows.Forms.Label();
+            this.ValLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ProductPB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             // PriceLabel
             // 
             this.PriceLabel.AutoSize = true;
-            this.PriceLabel.Location = new System.Drawing.Point(24, 383);
+            this.PriceLabel.Location = new System.Drawing.Point(142, 372);
             this.PriceLabel.Name = "PriceLabel";
             this.PriceLabel.Size = new System.Drawing.Size(64, 25);
             this.PriceLabel.TabIndex = 3;
@@ -80,10 +81,20 @@
             this.QuantityLabel.TabIndex = 4;
             this.QuantityLabel.Text = "label1";
             // 
+            // ValLabel
+            // 
+            this.ValLabel.AutoSize = true;
+            this.ValLabel.Location = new System.Drawing.Point(24, 372);
+            this.ValLabel.Name = "ValLabel";
+            this.ValLabel.Size = new System.Drawing.Size(64, 25);
+            this.ValLabel.TabIndex = 5;
+            this.ValLabel.Text = "label1";
+            // 
             // ProductUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ValLabel);
             this.Controls.Add(this.QuantityLabel);
             this.Controls.Add(this.PriceLabel);
             this.Controls.Add(this.OpisTB);
@@ -106,5 +117,6 @@
         private System.Windows.Forms.TextBox OpisTB;
         private System.Windows.Forms.Label PriceLabel;
         private System.Windows.Forms.Label QuantityLabel;
+        private System.Windows.Forms.Label ValLabel;
     }
 }
